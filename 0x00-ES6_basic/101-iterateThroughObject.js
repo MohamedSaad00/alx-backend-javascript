@@ -1,10 +1,10 @@
 export default function iterateThroughObject(reportWithIterator) {
-  let n = reportWithIterator.next();
-  let res = '';
-
-  while (!n.done) {
-    res += `${n.value} | `;
-    n = reportWithIterator.next();
+  // reportWithIterator is any iterable (in our case, an array)
+  // Collect all names into an array:
+  const names = [];
+  for (const name of reportWithIterator) {
+    names.push(name);
   }
-  return res.slice(0, res.length - 3);
+  // Join them with " | ":
+  return names.join(' | ');
 }
